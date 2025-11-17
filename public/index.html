@@ -4,9 +4,71 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hola mundo</title>
+    <style>
+        .rojo{
+            background: red;
+        }
+
+        .azul{
+            background: powderblue;
+        }
+
+        #contenido1{
+            border: 1px solid black;
+        }
+
+    </style>
 </head>
 <body>
-    <h1>Hola mundo</h1>
-    <p>Probando como va la cosa</p>
+    <div id = "contenido1" class= "rojo">
+        <p>Contenido 1</p>
+    </div>
+
+    <div id = "contenido2" class = "rojo">
+        <p>Contenido 2</p>
+    </div>
+
+    <div id="contenido3" class="azul">
+        <p>Las clases son compartidas</p>
+    </div>
+    
+    <div id="contenido4">
+        <p id = "contador">  </p>
+        <button onclick="sumar()">Pulsar</button>
+    </div>
+
+    <script>
+        const contenido2 = document.querySelector("#contenido2")
+        console.log(contenido2)
+        const p1 = document.createElement("p")
+        const p2 = document.createElement("p")
+        p1.textContent = "hola mundo"
+        p2.textContent = "klk manin"
+        contenido2.appendChild(p1)
+        contenido2.appendChild(p2)
+
+        let contador = 0;
+        let contadorElement = document.querySelector("#contador")
+        contadorElement.textContent = contador;
+
+        function sumar(){
+            console.log("funcion disparada")
+            contador++;
+            contadorElement.textContent = contador;
+        }
+
+        const frutas = ["manzana", "pera", "mango", "papaya"]
+        const listaElement = document.createElement("ul")
+        
+        for(let i = 0; i == frutas.lenght; i++){
+            const elementoLista = document.createElement("li")
+            elementoLista.textContent = frutas[i]
+            listaElement.appendChild(elementoLista)
+        }
+        document.body.appendChild(listaElement)
+        
+
+
+    </script>
 </body>
 </html>
